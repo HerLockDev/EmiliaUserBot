@@ -17,13 +17,13 @@ from userbot.events import register
 # ██████ LANGUAGE CONSTANTS ██████ #
 
 from userbot.language import get_value
-LANG = get_value("__owen")
+LANG = get_value("__emi")
 
 # ████████████████████████████████ #
 
-@register(outgoing=True, pattern="^.owen(?: |$)(.*)")
+@register(outgoing=True, pattern="^.emi(?: |$)(.*)")
 async def owen(event):
-    """ .owen komutun """
+    """ .emi komutun """
     args = event.pattern_match.group(1).lower()
     if args:
         if args in CMD_HELP:
@@ -35,7 +35,7 @@ async def owen(event):
         sayfa = [sorted(list(CMD_HELP))[i:i + 5] for i in range(0, len(sorted(list(CMD_HELP))), 5)]
         
         for i in sayfa:
-            string += f'`🔻⇝ `'
+            string += f'`🔹⇝ `'
             for sira, a in enumerate(i):
                 string += "`" + str(a)
                 if sira == i.index(i[-1]):
