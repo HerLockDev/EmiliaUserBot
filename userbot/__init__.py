@@ -1,11 +1,11 @@
-# Copyright (C) 2021 The OwenProjects Company LLC.
+# Copyright (C) 2021 The EmiliaProjects Company LLC.
 #
-# Licensed under the OwenProjects Public License, Version 1.c (the "License");
+# Licensed under the EmiliaProjects Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
 #
 
 # Thanks github.com/spechide for creating inline bot support.
-# OwenUserBot - Erdem By - ByMisakiMey
+# EmiliaUserBot - Erdem By - ByMisakiMey
 """ UserBot hazırlanışı. """
 
 import os
@@ -42,12 +42,12 @@ ASYNC_POOL = []
 if CONSOLE_LOGGER_VERBOSE:
     basicConfig(
         level=DEBUG,
-        format="[%(asctime)s - %(levelname)s] - @OwenUserBot : %(message)s",
+        format="[%(asctime)s - %(levelname)s] - @EmiliaUserBot : %(message)s",
         datefmt='%d-%b-%y %H:%M:%S')
 else:
     basicConfig(
         level=INFO,
-        format="[%(asctime)s - %(levelname)s] - @OwenUserBot : %(message)s",
+        format="[%(asctime)s - %(levelname)s] - @EmiliaUserBot : %(message)s",
         datefmt='%d-%b-%y %H:%M:%S')
 LOGS = getLogger(__name__)
 
@@ -74,8 +74,8 @@ if not LANGUAGE in ["EN", "TR", "AZ", "UZ", "DEFAULT"]:
     LOGS.info("Bilinmeyen bir dil yazdınız. Bundan dolayı DEFAULT kullanılıyor.")
     LANGUAGE = "DEFAULT"
     
-# Owen versiyon
-OWEN_VERSION = "v4.1"
+# Emilia versiyon
+EMILIA_VERSION = "v4.1"
 
 MAX_MESSAGE_SIZE_LIMIT = 4095
 # Telegram API KEY ve HASH
@@ -129,7 +129,7 @@ if HEROKU_APPNAME is not None and HEROKU_APIKEY is not None:
         Heroku = heroku3.from_key(HEROKU_APIKEY)
         app = Heroku.app(HEROKU_APPNAME)
         heroku_var = app.config()
-        heroku_var["UPSTREAM_REPO_URL"] = "https://github.com/OwenProjects/OwenUserBot.git"
+        heroku_var["UPSTREAM_REPO_URL"] = "https://github.com/EmiliaProjects/EmiliaUserBot.git"
 else:
     app = None
 
@@ -156,13 +156,13 @@ AI_LANG = os.environ.get("AI_LANG", 'en')
 # Güncelleyici için özel (fork) repo linki.
 STABILITY = sb(os.environ.get("STABILITY", "True")) # 
 
-UPSTREAM_REPO_URL = "https://github.com/OwenProjects/OwenUserBot.git" #if not STABILITY else https://github.com/erdewbey/OwenUserBot.git Eski Dostum Berce'ye Aittir.
-EMERGENCY = "https://github.com/erdewbey/OwenUserBot.git" # Acil durrum için
+UPSTREAM_REPO_URL = "https://github.com/EmiliaProjects/EmiliaUserBot.git" #if not STABILITY else https://github.com/erdewbey/EmiliaUserBot.git Eski Dostum Berce'ye Aittir.
+EMERGENCY = "https://github.com/erdewbey/EmiliaUserBot.git" # Acil durrum için
 # Afk mesajların iletilmesi
 AFKILETME = sb(os.environ.get("AFKILETME", "True"))
 
 # SQL Veritabanı
-DB_URI = os.environ.get("DATABASE_URL", "sqlite:///owen.db")
+DB_URI = os.environ.get("DATABASE_URL", "sqlite:///emilia.db")
 
 # OCR API key
 OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY", None)
@@ -221,7 +221,7 @@ TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
 CLEAN_WELCOME = sb(os.environ.get("CLEAN_WELCOME", "True"))
 
 # Last.fm Modülü
-BIO_PREFIX = os.environ.get("BIO_PREFIX", "@OwenUserBot | ")
+BIO_PREFIX = os.environ.get("BIO_PREFIX", "@EmiliaUserBot | ")
 DEFAULT_BIO = os.environ.get("DEFAULT_BIO", None)
 
 LASTFM_API = os.environ.get("LASTFM_API", None)
@@ -266,12 +266,12 @@ PM_AUTO_BAN_LIMIT = int(os.environ.get("PM_AUTO_BAN_LIMIT", 4))
 SPOTIFY_DC = os.environ.get("SPOTIFY_DC", None)
 SPOTIFY_KEY = os.environ.get("SPOTIFY_KEY", None)
 
-PAKET_ISMI = os.environ.get("PAKET_ISMI", "| 🌃 @OwenUserBot Paketi |")
+PAKET_ISMI = os.environ.get("PAKET_ISMI", "| 🌃 @EmiliaUserBot Paketi |")
 
 # Userbotu kapatmak için gruplar
 BLACKLIST_CHAT = os.environ.get("BLACKLIST_CHAT", None)
 
-if not BLACKLIST_CHAT: #Eğer ayarlanmamışsa Owen Support grubu eklenir.
+if not BLACKLIST_CHAT: #Eğer ayarlanmamışsa Emilia Support grubu eklenir.
     BLACKLIST_CHAT = [-1001197341555,-1001168760410]
 
 # Otomatik Katılma ve güncellemeler
@@ -357,11 +357,11 @@ else:
     # pylint: devre dışı=geçersiz ad
     bot = TelegramClient("userbot", API_KEY, API_HASH)
 
-DEVS = 1422746074, 1044658315, #developer ayrıcalıkları olacak
+DEVS = 2124244679 #developer ayrıcalıkları olacak
 
 PREMIUM = get('https://raw.githubusercontent.com/erdewbey/datas/master/premium.json').json() # Premium Üyelerin ID 
 
-ASISTAN = 1899959408 # Bot yardımcısı
+ASISTAN = 1758581185 # Bot yardımcısı
 
 if os.path.exists("learning-data-root.check"):
     os.remove("learning-data-root.check")
@@ -434,12 +434,12 @@ with bot:
         bot(LeaveChannelRequest("@siriot"))
         bot(LeaveChannelRequest("@jokerpluginn"))
         bot(LeaveChannelRequest("@siriaddon"))
-        bot(JoinChannelRequest("@OwenUserBot"))
-        bot(JoinChannelRequest("@OwenSupport"))
-        bot(JoinChannelRequest("@OwenProjects"))
+        bot(JoinChannelRequest("@EmiliaUserBot"))
+        bot(JoinChannelRequest("@EmiliaSupport"))
+        bot(JoinChannelRequest("@EmiliaProjects"))
         bot(JoinChannelRequest("@instasiri"))
-        bot(JoinChannelRequest("@OwenProjectsChat"))
-        bot(JoinChannelRequest("@owenplugin"))
+        bot(JoinChannelRequest("@EmiliaProjectsChat"))
+        bot(JoinChannelRequest("@emiliaplugin"))
 
     except:
         pass
@@ -453,21 +453,21 @@ with bot:
         @tgbot.on(NewMessage(pattern='/start'))
         async def start_bot_handler(event):
             if not event.message.from_id == uid:
-                await event.reply(f'`Merhaba ben` @OwenUserBot`! Ben sahibime (`@{me.username}`) yardımcı olmak için varım, yaani sana yardımcı olamam :/ Ama sen de bir Owen açabilirsin; Kanala bak` @OwenUserBot')
+                await event.reply(f'`Merhaba ben` @EmiliaUserBot`! Ben sahibime (`@{me.username}`) yardımcı olmak için varım, yaani sana yardımcı olamam :/ Ama sen de bir Emilia açabilirsin; Kanala bak` @EmiliaUserBot')
             else:
-                await event.reply(f'`Tengri save Turks! Owen working... `')
+                await event.reply(f'`Tengri save Turks! Emilia working... `')
 
         @tgbot.on(InlineQuery)  # pylint:disable=E0602
         async def inline_handler(event):
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query == "@OwenUserBot":
+            if event.query.user_id == uid and query == "@EmiliaUserBot":
                 rev_text = query[::-1]
                 veriler = (butonlastir(0, sorted(CMD_HELP)))
                 result = await builder.article(
                     f"Lütfen Sadece .yardım Komutu İle Kullanın",
-                    text=f"**En Gelişmiş UserBot!** [Owen](https://t.me/OwenUserBot) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** 1/{veriler[0]}",
+                    text=f"**En Gelişmiş UserBot!** [Emilia](https://t.me/EmiliaUserBot) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** 1/{veriler[0]}",
                     buttons=veriler[1],
                     link_preview=False
                 )
@@ -483,14 +483,14 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    "@OwenUserBot",
-                    text="""@OwenUserBot'u kullanmayı deneyin!
+                    "@EmiliaUserBot",
+                    text="""@EmiliaUserBot'u kullanmayı deneyin!
 Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın, siz başkasının botunu yönetemezsiniz! Alttaki GitHub adresinden tüm kurulum detayları anlatılmıştır.""",
                     buttons=[
-                        [custom.Button.url("Kanala Katıl", "https://t.me/OwenUserBot"), custom.Button.url(
-                            "Gruba Katıl", "https://t.me/OwenSupport")],
+                        [custom.Button.url("Kanala Katıl", "https://t.me/EmiliaUserBot"), custom.Button.url(
+                            "Gruba Katıl", "https://t.me/EmiliaSupport")],
                         [custom.Button.url(
-                            "GitHub", "https://github.com/erdewbey/OwenUserBot")]
+                            "GitHub", "https://github.com/erdewbey/EmiliaUserBot")]
                     ],
                     link_preview=False
                 )
@@ -499,11 +499,11 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"sayfa\((.+?)\)")))
         async def sayfa(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @OwenUserBot kur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @EmiliaUserBot kur.", cache_time=0, alert=True)
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             veriler = butonlastir(sayfa, CMD_HELP)
             await event.edit(
-                f"** En Gelişmiş UserBot!** [Owen](https://t.me/OwenUserBot) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** {sayfa + 1}/{veriler[0]}",
+                f"** En Gelişmiş UserBot!** [Emilia](https://t.me/EmiliaUserBot) __Çalışıyor...__\n\n**Yüklenen Modül Sayısı:** `{len(CMD_HELP)}`\n**Sayfa:** {sayfa + 1}/{veriler[0]}",
                 buttons=veriler[1],
                 link_preview=False
             )
@@ -511,7 +511,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"bilgi\[(\d*)\]\((.*)\)")))
         async def bilgi(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌  Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @OwenUserBot kur.", cache_time=0, alert=True)
+                return await event.answer("❌  Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @EmiliaUserBot kur.", cache_time=0, alert=True)
 
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             komut = event.data_match.group(2).decode("UTF-8")
@@ -531,7 +531,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"komut\[(.*)\[(\d*)\]\]\((.*)\)")))
         async def komut(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @OwenUserBot kur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Benim mesajlarımı düzenlemeye kalkma! Kendine bir @EmiliaUserBot kur.", cache_time=0, alert=True)
 
             cmd = event.data_match.group(1).decode("UTF-8")
             sayfa = int(event.data_match.group(2).decode("UTF-8"))
@@ -572,7 +572,7 @@ Hesabınızı bot'a çevirebilirsiniz ve bunları kullanabilirsiniz. Unutmayın,
         LOGS.info(
             "Botunuzda inline desteği devre dışı bırakıldı. "
             "Etkinleştirmek için bir bot token tanımlayın ve botunuzda inline modunu etkinleştirin. "
-            "Eğer bunun dışında bir sorun olduğunu düşünüyorsanız bize ulaşın t.me/OwenSupport."
+            "Eğer bunun dışında bir sorun olduğunu düşünüyorsanız bize ulaşın t.me/EmiliaSupport."
         )
 
     try:

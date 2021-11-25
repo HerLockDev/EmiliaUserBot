@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# Owen UserBot - ErdewBey - ByMisakiMey
+# Emilia UserBot - ErdewBey - ByMisakiMey
 
 """ UserBot başlangıç noktası """
 import importlib
@@ -15,7 +15,7 @@ import requests
 from telethon.tl.types import InputMessagesFilterDocument
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 from telethon.tl.functions.channels import GetMessagesRequest
-from . import BRAIN_CHECKER, LOGS, bot, PLUGIN_CHANNEL_ID, CMD_HELP, LANGUAGE, OWEN_VERSION, PATTERNS, DEFAULT_NAME, BOT_TOKEN
+from . import BRAIN_CHECKER, LOGS, bot, PLUGIN_CHANNEL_ID, CMD_HELP, LANGUAGE, EMILIA_VERSION, PATTERNS, DEFAULT_NAME, BOT_TOKEN
 from .modules import ALL_MODULES
 from .asisstant.modules import ALL_MODULE
 import userbot.modules.sql_helper.mesaj_sql as MSJ_SQL
@@ -30,12 +30,12 @@ import userbot.cmdhelp
 import glob
 
 ALIVE_MSG = [
-    "`Userbotunuz çalışıyor ve sana bişey demek istiyor.. Seni seviyorum` **{owensahip}** ❤️ \n Bot Versiyonu: {owen} ",
-    "🎆 `Endişelenme! Seni yanlız bırakmam.` **{owensahip}**, `OwenUserbot çalışıyor.` \n Bot Versiyonu: {owen} ",
-    "`⛈️ Elimden gelenin en iyisini yapmaya hazırım`, **{owensahip}** \n Bot Versiyonu: {owen} ",
-    "✨ `OwenUserBot sahibinin emirlerine hazır...` \n Bot Versiyonu: {owen} ",
-    "`Şuan en gelişmiş userbotun düzenlediği mesajı okuyor olmalısın` **{owensahip}**. \n Bot Versiyonu: {owen} ",
-    "`Benimi Aramıştın ❓ Ben Buradayım Merak Etme` \n Bot Versiyonu: {owen} "
+    "`Userbotunuz çalışıyor ve sana bişey demek istiyor.. Seni seviyorum` **{emiliasahip}** ❤️ \n Bot Versiyonu: {emilia} ",
+    "🎆 `Endişelenme! Seni yanlız bırakmam.` **{emiliasahip}**, `EmiliaUserbot çalışıyor.` \n Bot Versiyonu: {emilia} ",
+    "`⛈️ Elimden gelenin en iyisini yapmaya hazırım`, **{emiliasahip}** \n Bot Versiyonu: {emilia} ",
+    "✨ `EmiliaUserBot sahibinin emirlerine hazır...` \n Bot Versiyonu: {emilia} ",
+    "`Şuan en gelişmiş userbotun düzenlediği mesajı okuyor olmalısın` **{emiliasahip}**. \n Bot Versiyonu: {emilia} ",
+    "`Benimi Aramıştın ❓ Ben Buradayım Merak Etme` \n Bot Versiyonu: {emilia} "
 ]
 
 DIZCILIK_STR = [
@@ -88,12 +88,12 @@ KICKME_MSG = [
 ]
 
 CV_MSG = [
-    "**{DEFAULT_NAME}** `Fazla Bi Bilgi Ayarlamamış Ama Şunu Biliyorum Kendisi Baya Zevkli Birisi Çünkü Owen Userbot Kullanıyor.` 😁",
+    "**{DEFAULT_NAME}** `Fazla Bi Bilgi Ayarlamamış Ama Şunu Biliyorum Kendisi Baya Zevkli Birisi Çünkü Emilia Userbot Kullanıyor.` 😁",
     "`Üzgünüm sana vercek bir bilgim yok.`"
 ]
 
 
-UNAPPROVED_MSG = ("`Hey olduğun yerde kal,!👨‍💻 Ben Owen. Endişelenme!\n\n`"
+UNAPPROVED_MSG = ("`Hey olduğun yerde kal,!👨‍💻 Ben Emilia. Endişelenme!\n\n`"
                   "`Sahibim sana mesaj atma izni vermedi o yüzden sahibim seni onaylayana kadar bu mesajı alacaksın.. `"
                   "`Lütfen sahibimin aktif olmasını bekleyin, o genellikle PM'leri onaylar.\n\n`"
                   "`Bildiğim kadarıyla o kafayı yemiş insanlara PM izni vermiyor.`")
@@ -151,11 +151,11 @@ def extractCommands(file):
                             KomutStr = Command
                         Komutlar.append(KomutStr)
 
-            # OWENPY
-            Owenpy = re.search('\"\"\"OWENPY(.*)\"\"\"', FileRead, re.DOTALL)
-            if not Owenpy == None:
-                Owenpy = Owenpy.group(0)
-                for Satir in Owenpy.splitlines():
+            # EMILIAPY
+            Emiliapy = re.search('\"\"\"EMILIAPY(.*)\"\"\"', FileRead, re.DOTALL)
+            if not Emiliapy == None:
+                Emiliapy = Emiliapy.group(0)
+                for Satir in Emiliapy.splitlines():
                     if (not '"""' in Satir) and (':' in Satir):
                         Satir = Satir.split(':')
                         Isim = Satir[0]
@@ -176,10 +176,10 @@ def extractCommands(file):
 try:
     bot.start()
     idim = bot.get_me().id
-    owenbl = requests.get('https://raw.githubusercontent.com/erdewbey/datas/master/blacklist.json').json()
-    if idim in owenbl:
-        bot.send_message("me", f"`❌ Owen yöneticileri sizi bottan yasakladı! Bot kapatılıyor...`")
-        LOGS.error("Owen yöneticileri sizi bottan yasakladı! Bot kapatılıyor...")
+    emiliabl = requests.get('https://raw.githubusercontent.com/erdewbey/datas/master/blacklist.json').json()
+    if idim in emiliabl:
+        bot.send_message("me", f"`❌ Emilia yöneticileri sizi bottan yasakladı! Bot kapatılıyor...`")
+        LOGS.error("Emilia yöneticileri sizi bottan yasakladı! Bot kapatılıyor...")
         bot.disconnect()
     # ChromeDriver'ı Ayarlayalım #
     try:
@@ -279,12 +279,12 @@ if BOT_TOKEN:
 os.system("clear")
 
 LOGS.info("+===========================================================+")
-LOGS.info("|                     ✨Owen Userbot✨                       |")
+LOGS.info("|                     ✨Emilia Userbot✨                       |")
 LOGS.info("+==============+==============+==============+==============+")
 LOGS.info("|                                                            |")
 LOGS.info("Botunuz çalışıyor! Herhangi bir sohbete .alive yazarak Test edin."
-          " Yardıma İhtiyacınız varsa, Destek grubumuza gelin t.me/OwenSupport")
-LOGS.info(f"Bot versiyonunuz: Owen ==> {OWEN_VERSION}")
+          " Yardıma İhtiyacınız varsa, Destek grubumuza gelin t.me/EmiliaSupport")
+LOGS.info(f"Bot versiyonunuz: Emilia ==> {EMILIA_VERSION}")
 
 """
 if len(argv) not in (1, 3, 4):
